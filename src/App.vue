@@ -1,9 +1,13 @@
 <template>
   <div
     id="app"
-    :class="typeof weather.main != 'undefined' && weather.main.temp > 20 ? 'clear' : ''"
+    :class="typeof weather.main != 'undefined' && weather.main.temp > 27 ? 'clear' : ''"
   >
     <main>
+      <div class="about">
+        <h3>myWeather</h3>
+        <h6>Get to know the weather condition of different countries with just one Search</h6>
+      </div>
       <div class="search-box">
         <input
           type="text"
@@ -18,6 +22,7 @@
         <div class="location-box">
           <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
           <div class="date">{{ dateBuilder() }}</div>
+          <div class="time">{{ timeBuilder() }}</div>
         </div>
 
         <div class="weather-box">
@@ -86,19 +91,35 @@ export default {
       let year = d.getFullYear();
       return `${day} ${date} ${month} ${year}`;
     },
+    timeBuilder() {
+      let d = new Date();
+      let hr = d.getHours();
+      let min = d.getMinutes();
+      if (min < 10) {
+        min = "0" + min;
+      }
+      let ampm = "am";
+      if (hr > 12) {
+        hr -= 12;
+        ampm = "pm";
+      }
+      // let time = t.getTime();
+      return `${hr}:${min} ${ampm} `;
+    },
   },
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka+One&family=Raleway:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka+One&family=Raleway:ital,wght@1,400;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap");
 * {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
 #app {
-  background-image: url("./assets/warm.jpg");
+  background-image: url("./assets/clouds.jpg");
   background-position: center;
   background-size: cover;
   transition: 0.4s;
@@ -109,8 +130,8 @@ export default {
 #app.clear {
   background-image: url("./assets/clear sky.jpg");
 }
-#app.rain {
-  background-image: url("./assets/rain.jpg");
+#app.cloud {
+  background-image: url("./assets/clouds.jpg");
 }
 main {
   min-height: 100vh;
@@ -121,14 +142,47 @@ main {
     rgba(0, 0, 0, 0.75)
   );
 }
-.search-box {
-  width: 50%;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+main h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-family: "Fredoka One";
+}
+main h6 {
+  color: #fff;
+  text-align: center;
+
+  font-size: 15px;
+  font-family: "Raleway", cursive;
+  font-weight: 400;
+
+  word-spacing: 0.3rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .search-box {
+    width: 50%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  .search-box {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  main h3 {
+    margin-top: 5rem;
+  }
 }
 .search-box .search-bar {
   display: block;
@@ -164,9 +218,19 @@ main {
   color: #fff;
   font-size: 20px;
   font-weight: 300;
+  margin-top: 1rem;
   font-style: italic;
   text-align: center;
   font-family: "Courgette", cursive;
+}
+.location-box .time {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 900;
+  margin-top: 1rem;
+  font-style: italic;
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
 }
 .weather-box {
   text-align: center;
