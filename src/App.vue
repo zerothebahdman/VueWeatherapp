@@ -152,9 +152,9 @@ main h6 {
   color: #fff;
   text-align: center;
 
-  font-size: 15px;
-  font-family: "Raleway", cursive;
-  font-weight: 400;
+  font-size: 17px;
+  font-family: "Courgette", cursive;
+  font-weight: bold;
 
   word-spacing: 0.3rem;
   margin-top: 1rem;
@@ -180,9 +180,6 @@ main h6 {
     align-items: center;
     margin: auto;
   }
-  main h3 {
-    margin-top: 5rem;
-  }
 }
 .search-box .search-bar {
   display: block;
@@ -199,7 +196,7 @@ main h6 {
   background-color: rgba(255, 255, 255, 8.5);
   border-radius: 0px 16px 0px 16px;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-  transition: 0.4s;
+  transition: 0.7s;
 }
 .search-box .search-bar:focus {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
@@ -218,7 +215,7 @@ main h6 {
   color: #fff;
   font-size: 20px;
   font-weight: 300;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   font-style: italic;
   text-align: center;
   font-family: "Courgette", cursive;
@@ -227,7 +224,7 @@ main h6 {
   color: #fff;
   font-size: 25px;
   font-weight: 900;
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   font-style: italic;
   text-align: center;
   font-family: "Catamaran", sans-serif;
@@ -245,7 +242,7 @@ main h6 {
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 16px;
-  margin: 30px 0px;
+  margin: 20px 0px;
 
   box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
 }
